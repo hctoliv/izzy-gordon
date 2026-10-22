@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Izzy Gordon · SambaJazzSoul</title>
+<meta name="description" content="Izzy Gordon, cantora e compositora. Samba, jazz e soul. Ouça Sementes da Tamarineira, Izzy Gordon canta Jorge Aragão, e contrate shows.">
+<meta property="og:title" content="Izzy Gordon · SambaJazzSoul">
+<meta property="og:description" content="Cantora e compositora. Ouça Sementes da Tamarineira e contrate shows.">
+<meta property="og:image" content="img/og.jpg">
+<meta name="theme-color" content="#05100f">
+<link rel="icon" href="img/c-934402721.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=6">
+<script>try{if(!sessionStorage.getItem('izzyIntro')||/[?&]intro/.test(location.search))document.documentElement.classList.add('intro-on')}catch(e){}</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="sun" viewBox="-50 -50 100 100">
+      <path class="sun__rays" d=""/>
+      <circle r="22" class="sun__disc"/>
+      <path class="sun__spiral" d="M0 0c2-1 4 1 3 3-1 4-6 4-8 1-3-4 0-10 5-10 7 0 11 7 9 13-2 7-11 10-17 6"/>
+    </symbol>
+    <symbol id="seed" viewBox="0 0 40 56">
+      <ellipse cx="20" cy="28" rx="18" ry="26" class="seed__out"/>
+      <ellipse cx="20" cy="28" rx="7" ry="13" class="seed__in"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- INTRO: a semente cai, racha e cria raiz -->
+<div class="intro" id="intro" aria-hidden="true">
+  <svg class="intro__svg" viewBox="0 0 400 400">
+    <g class="intro__seed"><use href="#seed" x="180" y="120" width="40" height="56"/></g>
+    <path class="intro__root r1" d="M200 176 C200 220 196 250 200 300 C203 330 200 350 200 380"/>
+    <path class="intro__root r2" d="M200 230 C185 250 160 262 140 300"/>
+    <path class="intro__root r3" d="M201 250 C220 270 246 280 262 318"/>
+    <path class="intro__root r4" d="M199 300 C180 315 172 336 164 360"/>
+    <path class="intro__root r5" d="M200 320 C215 335 232 342 240 370"/>
+  </svg>
+  <p class="intro__name" id="introName">Izzy Gordon</p>
+  <p class="intro__sub">Samba · Jazz · Soul</p>
+  <span class="intro__skip">toque para pular</span>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="hd" id="hd">
+  <a class="hd__name" href="#inicio">Izzy Gordon</a>
+  <nav class="hd__nav" id="nav">
+    <a href="#raizes">Raízes</a>
+    <a href="#sementes">Sementes</a>
+    <a href="#rainhas">Rainhas</a>
+    <a href="#musica">Música</a>
+    <a href="#palco">Palco</a>
+    <a href="#agenda">Agenda</a>
+  </nav>
+  <a class="hd__cta" href="#contato">Contratar show</a>
+  <button class="hd__menu" id="menuBtn" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main>
+
+<!-- HERO: losango do álbum que abre até virar palco -->
+<section class="hero" id="inicio" data-hd="dark">
+  <div class="hero__stick">
+    <div class="hero__cloth" aria-hidden="true"></div>
+    <div class="hero__suns" aria-hidden="true">
+      <svg class="sun s1"><use href="#sun"/></svg>
+      <svg class="sun s2"><use href="#sun"/></svg>
+      <svg class="sun s3"><use href="#sun"/></svg>
+      <svg class="sun s4"><use href="#sun"/></svg>
+      <svg class="seed sd1"><use href="#seed"/></svg>
+      <svg class="seed sd2"><use href="#seed"/></svg>
+      <svg class="seed sd3"><use href="#seed"/></svg>
+      <svg class="seed sd4"><use href="#seed"/></svg>
+    </div>
+
+    <p class="hero__giant hero__giant--l" aria-hidden="true">Izzy</p>
+    <p class="hero__giant hero__giant--r" aria-hidden="true">Gordon</p>
+
+    <div class="hero__win" id="heroWin">
+      <div class="hero__tri" id="heroTri">
+        <video src="video/festival-loop.mp4" poster="img/festival-loop.jpg" muted loop playsinline preload="metadata"></video>
+        <img src="img/palco-vermelho.jpg" alt="Izzy Gordon cantando de vestido vermelho no palco">
+        <video src="video/francisca-b.mp4" poster="img/francisca-b.jpg" muted loop playsinline preload="metadata"></video>
+      </div>
+      <img class="hero__img hero__img--a" id="heroA" src="img/retrato-sofa.jpg" alt="Izzy Gordon em retrato preto e branco, olhando de lado">
+    </div>
+    <svg class="hero__frame" id="heroFrame" aria-hidden="true">
+      <polygon class="f1"/><polygon class="f2"/><polygon class="f3"/>
+    </svg>
+
+    <div class="hero__copy">
+      <p class="hero__kicker">Cantora e compositora</p>
+      <h1 class="hero__title"><span>Izzy</span> <span>Gordon</span></h1>
+      <p class="hero__words" aria-label="Samba, jazz e soul"><span>Samba</span><i></i><span>Jazz</span><i></i><span>Soul</span></p>
+    </div>
+
+    <div class="hero__after" id="heroAfter">
+      <p class="hero__after-k">#músicapretabrasileira</p>
+      <p class="hero__after-t">Samba, jazz e soul<br>com <em>raiz preta.</em></p>
+    </div>
+
+    <div class="hero__cta">
+      <button class="btn btn--sun" data-play="sementes:0"><svg class="mini-sun"><use href="#sun"/></svg> Ouvir Sementes</button>
+      <a class="btn btn--line" href="#contato">Contratar show</a>
+    </div>
+    <span class="hero__scroll" aria-hidden="true">role</span>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="mani" data-hd="light">
+  <div class="band band--zig" aria-hidden="true"></div>
+  <div class="mani__in">
+    <p class="mani__k">Ancestralidade</p>
+    <p class="mani__t" id="maniText">Entre samba, memória e ancestralidade, Izzy reverencia as grandes escolas da música brasileira e imprime a sua voz em canções que atravessam gerações.</p>
+    <p class="mani__src">Sobre Sementes da Tamarineira</p>
+  </div>
+</section>
+
+<!-- RAÍZES -->
+<section class="roots" id="raizes" data-hd="light">
+  <div class="roots__head">
+    <p class="eyebrow">Raízes</p>
+    <h2 class="h2">Da raiz <em>à semente</em></h2>
+    <p class="lede">Uma linhagem de cantores, um palco aberto desde cedo e três décadas espalhando samba, jazz e soul pelo país.</p>
+  </div>
+
+  <div class="roots__tree">
+    <svg class="roots__line" id="rootLine" preserveAspectRatio="none" viewBox="0 0 100 1000" aria-hidden="true">
+      <path id="rootPath" d="M50 0 C40 80 62 150 50 230 C38 310 62 380 50 460 C40 540 60 610 50 690 C42 770 58 850 50 1000"/>
+    </svg>
+
+    <article class="node">
+      <span class="node__y">Família</span>
+      <div class="node__c">
+        <h3>Filha de Dave Gordon, sobrinha de Dolores Duran</h3>
+        <p>O pai é o cantor Dave Gordon, nascido na Guiana. A tia é Dolores Duran, cantora e compositora que Izzy homenageou logo no primeiro disco.</p>
+      </div>
+    </article>
+    <article class="node">
+      <span class="node__y">Palco</span>
+      <div class="node__c">
+        <h3>Emoções Baratas</h3>
+        <p>O talento de cantora se confirmou no musical dirigido por José Possi Neto.</p>
+      </div>
+    </article>
+    <article class="node">
+      <span class="node__y">1993</span>
+      <div class="node__c">
+        <h3>No disco “23”, de Jorge Ben Jor</h3>
+        <p>Gravou com Jorge Ben Jor e saiu em turnê com ele. No mesmo fôlego eclético, fez backing vocal para o Deep Purple.</p>
+      </div>
+    </article>
+    <article class="node">
+      <span class="node__y">2005</span>
+      <div class="node__c">
+        <h3>Aos Mestres com Carinho</h3>
+        <p>O primeiro álbum é uma homenagem à tia, a cantora e compositora Dolores Duran.</p>
+      </div>
+    </article>
+    <article class="node">
+      <span class="node__y">2011</span>
+      <div class="node__c">
+        <h3>Negro Azul da Noite</h3>
+        <p>Projeto baseado na obra de alguns dos nossos maiores e mais expressivos compositores negros.</p>
+      </div>
+    </article>
+    <article class="node">
+      <span class="node__y">2016</span>
+      <div class="node__c">
+        <h3>Superstar, Rede Globo</h3>
+        <p>Mostrou toda a sua elegância em rede nacional.</p>
+      </div>
+    </article>
+    <article class="node">
+      <span class="node__y">2022</span>
+      <div class="node__c">
+        <h3>Neguinha Sim</h3>
+        <p>Lançou Neguinha Sim, que um ano depois ganhou versão bilíngue com Kennedi Mack: Little Black Girl / Neguinha Sim!</p>
+      </div>
+    </article>
+    <article class="node node--seed">
+      <span class="node__y">2026</span>
+      <div class="node__c">
+        <h3>Sementes da Tamarineira</h3>
+        <p>Izzy Gordon canta Jorge Aragão. O primeiro volume de uma trilogia dedicada aos compositores do Cacique de Ramos.</p>
+        <a class="link" href="#sementes">Conhecer o álbum</a>
+      </div>
+    </article>
+  </div>
+
+  <div class="stages">
+    <p class="stages__k">Já dividiu o palco com</p>
+    <div class="stages__row" aria-label="Artistas com quem Izzy dividiu o palco">
+      <div class="stages__track">
+        <span>Emicida</span><span>Margareth Menezes</span><span>Elba Ramalho</span><span>Paula Lima</span><span>Banda Black Rio</span><span>Max de Castro</span><span>Gerson King Combo</span><span>Zizi Possi</span><span>Fernanda Porto</span><span>Ed Motta</span><span>Rashid</span><span>Rael</span>
+        <span aria-hidden="true">Emicida</span><span aria-hidden="true">Margareth Menezes</span><span aria-hidden="true">Elba Ramalho</span><span aria-hidden="true">Paula Lima</span><span aria-hidden="true">Banda Black Rio</span><span aria-hidden="true">Max de Castro</span><span aria-hidden="true">Gerson King Combo</span><span aria-hidden="true">Zizi Possi</span><span aria-hidden="true">Fernanda Porto</span><span aria-hidden="true">Ed Motta</span><span aria-hidden="true">Rashid</span><span aria-hidden="true">Rael</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEMENTES DA TAMARINEIRA -->
+<section class="seeds" id="sementes" data-hd="dark">
+  <div class="seeds__border" aria-hidden="true"></div>
+  <div class="seeds__in">
+    <div class="seeds__art">
+      <div class="seeds__cover" id="cover">
+        <img src="img/sementes-capa.jpg" alt="Capa do álbum Sementes da Tamarineira, Izzy Gordon canta Jorge Aragão" width="1280" height="1280">
+        <span class="seeds__shine" aria-hidden="true"></span>
+      </div>
+      <p class="seeds__meta">Álbum · 2026 · Atlântico Sul / YB Music</p>
+    </div>
+
+    <div class="seeds__txt">
+      <p class="eyebrow eyebrow--sun">Novo álbum</p>
+      <h2 class="h2 h2--cream">Sementes da <em>Tamarineira</em></h2>
+      <p class="seeds__sub">Izzy Gordon canta Jorge Aragão</p>
+      <p class="lede lede--cream">Debaixo da tamarineira do Cacique de Ramos, gente como Fundo de Quintal e Jorge Aragão inventou um jeito de fazer samba. Izzy volta àquela sombra com arranjos que conversam com o jazz e com a tradição do samba.</p>
+      <dl class="seeds__facts">
+        <div><dt>Produção</dt><dd>Allan Abbadia</dd></div>
+        <div><dt>Participações</dt><dd>Bia Ferreira, Ellen Oléria e Carica</dd></div>
+      </dl>
+
+      <ol class="tracks" id="tracks"></ol>
+
+      <div class="listen">
+        <a href="https://open.spotify.com/artist/3qJZyw79SrwTj2VSCUmZtp" target="_blank" rel="noopener">Spotify</a>
+        <a href="https://music.apple.com/br/album/sementes-da-tamarineira-izzy-gordon-canta-jorge-arag%C3%A3o/1884687303" target="_blank" rel="noopener">Apple Music</a>
+        <a href="https://www.deezer.com/album/934402721" target="_blank" rel="noopener">Deezer</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="trilogy">
+    <p class="trilogy__k">Uma trilogia dos compositores do Cacique de Ramos</p>
+    <div class="trilogy__row">
+      <div class="tri tri--open">
+        <svg class="tri__seed"><use href="#seed"/></svg>
+        <p class="tri__n">Vol. 1</p>
+        <p class="tri__t">Jorge Aragão</p>
+        <p class="tri__s">Germinou em 2026</p>
+      </div>
+      <div class="tri">
+        <svg class="tri__seed"><use href="#seed"/></svg>
+        <p class="tri__n">Vol. 2</p>
+        <p class="tri__t">Arlindo Cruz</p>
+        <p class="tri__s">Em breve</p>
+      </div>
+      <div class="tri">
+        <svg class="tri__seed"><use href="#seed"/></svg>
+        <p class="tri__n">Vol. 3</p>
+        <p class="tri__t">Luiz Carlos da Vila</p>
+        <p class="tri__s">Em breve</p>
+      </div>
+    </div>
+  </div>
+  <div class="seeds__border seeds__border--b" aria-hidden="true"></div>
+</section>
+
+<!-- RAINHAS -->
+<section class="queens" id="rainhas" data-hd="dark">
+  <div class="queens__in">
+    <div class="queens__txt">
+      <p class="eyebrow eyebrow--sun">Show</p>
+      <h2 class="h2 h2--cream">Rainhas</h2>
+      <p class="lede lede--cream">Uma reverência a mulheres incríveis que abriram caminhos e mudaram tudo à sua volta.</p>
+      <ul class="queens__list" id="queens">
+        <li>Elza Soares</li>
+        <li>Nina Simone</li>
+        <li>Dona Ivone Lara</li>
+        <li>Etta James</li>
+        <li>Dolores Duran</li>
+        <li>Tina Turner</li>
+        <li>Rita Lee</li>
+      </ul>
+    </div>
+    <figure class="queens__clip">
+      <div class="clip" id="atLast">
+        <video src="video/festival-loop.mp4" poster="img/festival-loop.jpg" muted loop playsinline preload="none" data-auto></video>
+        <video class="clip__full" data-src="video/at-last.mp4" playsinline preload="none"></video>
+        <button class="clip__btn" aria-label="Ouvir At Last com som"><svg class="mini-sun"><use href="#sun"/></svg><span>Ouvir com som</span></button>
+      </div>
+      <figcaption>At Last, de Etta James · Tudo é Jazz, Belo Horizonte</figcaption>
+    </figure>
+  </div>
+  <p class="queens__crown" aria-hidden="true">Rainhas Rainhas Rainhas</p>
+</section>
+
+<!-- MÚSICA -->
+<section class="music" id="musica" data-hd="light">
+  <div class="music__head">
+    <p class="eyebrow">Música</p>
+    <h2 class="h2">Lançamentos</h2>
+    <p class="lede">Toque numa capa para ouvir a prévia. O sol responde à voz dela.</p>
+  </div>
+  <div class="shelf" id="shelf"></div>
+  <p class="shelf__hint" aria-hidden="true">arraste para o lado</p>
+</section>
+
+<!-- PALCO -->
+<section class="stage" id="palco" data-hd="dark">
+  <div class="stage__head">
+    <p class="eyebrow eyebrow--sun">Ao vivo</p>
+    <h2 class="h2 h2--cream">Do Fundo do <em>Nosso Quintal</em></h2>
+    <p class="lede lede--cream">Festivais de jazz e blues, casas de samba, teatros. Izzy circula pelos melhores palcos do país.</p>
+  </div>
+  <div class="mosaic">
+    <figure class="m m--tall" data-speed=".06"><img src="img/casa-francisca.jpg" alt="Izzy Gordon no palco da Casa de Francisca" loading="lazy"><figcaption>Casa de Francisca, São Paulo</figcaption></figure>
+    <figure class="m m--wide" data-speed="-.04"><img src="img/palco-dueto.jpg" alt="Izzy Gordon em dueto no palco com banda" loading="lazy"><figcaption>Ao vivo, com banda</figcaption></figure>
+    <figure class="m m--vid" data-speed=".1"><video data-src="video/francisca-a.mp4" poster="img/francisca-a.jpg" muted loop playsinline data-auto></video><figcaption>Sementes da Tamarineira ao vivo</figcaption></figure>
+    <figure class="m m--bw" data-speed="-.02"><img src="img/retrato-sofa.jpg" alt="Retrato em preto e branco de Izzy Gordon" loading="lazy"></figure>
+    <figure class="m m--light" data-speed=".05"><img src="img/riso-branco.jpg" alt="Izzy Gordon sorrindo, de branco" loading="lazy"></figure>
+    <figure class="m m--wide2" data-speed="-.06"><img src="img/rainhas-palco.jpg" alt="Izzy Gordon cantando de braços abertos" loading="lazy"><figcaption>Rainhas</figcaption></figure>
+    <figure class="m m--vid" data-speed=".08"><video data-src="video/francisca-b.mp4" poster="img/francisca-b.jpg" muted loop playsinline data-auto></video><figcaption>Casa de Francisca</figcaption></figure>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section class="agenda" id="agenda" data-hd="light">
+  <div class="agenda__head">
+    <p class="eyebrow">Agenda</p>
+    <h2 class="h2">Próximos <em>encontros</em></h2>
+  </div>
+  <article class="gig gig--next">
+    <div class="gig__date"><b>20</b><span>nov<br>2026</span></div>
+    <div class="gig__info">
+      <p class="gig__tag">Próximo show</p>
+      <h3>Uma Noite em New Orleans</h3>
+      <p>Navio Homero Krähenbühl · Píer 37, Barra Bonita, SP. Jazz ao vivo, culinária cajun e embarque exclusivo. Vagas limitadas.</p>
+      <a class="btn btn--dark" href="https://wa.me/5514998758870?text=Ol%C3%A1!%20Quero%20informa%C3%A7%C3%B5es%20sobre%20Uma%20Noite%20em%20New%20Orleans%20com%20Izzy%20Gordon%20(20%2F11)." target="_blank" rel="noopener">Reservas no WhatsApp</a>
+    </div>
+    <img class="gig__img" src="img/new-orleans.jpg" alt="Cartaz Izzy Gordon no Navio Homero, Uma Noite em New Orleans" loading="lazy">
+  </article>
+  <div class="past">
+    <p class="past__k">Já passou</p>
+    <div class="past__row"><span>23 set 2026</span><b>Sementes da Tamarineira</b><em>Casa de Francisca, São Paulo</em></div>
+    <div class="past__row"><span>10 abr 2026</span><b>Lançamento de Sementes da Tamarineira</b><em>Sesc Pinheiros, São Paulo</em></div>
+    <div class="past__row"><span>2026</span><b>Rainhas</b><em>Festival Tudo é Jazz, Belo Horizonte</em></div>
+  </div>
+</section>
+
+<!-- DISCOGRAFIA -->
+<section class="disco" id="discografia" data-hd="dark">
+  <div class="disco__head">
+    <p class="eyebrow eyebrow--sun">Discografia</p>
+    <h2 class="h2 h2--cream">Álbuns</h2>
+  </div>
+  <div class="records" id="records"></div>
+</section>
+
+<!-- CONTATO -->
+<section class="hire" id="contato" data-hd="light">
+  <div class="band band--zig" aria-hidden="true"></div>
+  <div class="hire__in">
+    <div class="hire__txt">
+      <p class="eyebrow">Contratar</p>
+      <h2 class="h2">Leve a Izzy <em>pro seu palco</em></h2>
+      <p class="lede">Monte o pedido aqui e ele chega pronto no WhatsApp da produção.</p>
+      <ul class="hire__contacts">
+        <li><span>WhatsApp</span><a href="https://wa.me/5511959328780" target="_blank" rel="noopener">(11) 95932-8780</a></li>
+        <li><span>E-mail</span><a href="mailto:ereproducoes01@gmail.com">ereproducoes01@gmail.com</a></li>
+        <li><span>Instagram</span><a href="https://www.instagram.com/izzygordon/" target="_blank" rel="noopener">@izzygordon</a></li>
+      </ul>
+    </div>
+    <form class="build" id="build">
+      <fieldset>
+        <legend>Qual show?</legend>
+        <div class="chips" data-name="show">
+          <label><input type="radio" name="show" value="Sementes da Tamarineira" checked><span>Sementes da Tamarineira</span></label>
+          <label><input type="radio" name="show" value="Rainhas"><span>Rainhas</span></label>
+          <label><input type="radio" name="show" value="Jazz por Izzy"><span>Jazz por Izzy</span></label>
+          <label><input type="radio" name="show" value="Pop Jazz"><span>Pop Jazz</span></label>
+          <label><input type="radio" name="show" value="Só da Elza"><span>Só da Elza</span></label>
+        </div>
+        <p class="chips__note" id="showNote"></p>
+      </fieldset>
+      <fieldset>
+        <legend>Que tipo de evento?</legend>
+        <div class="chips" data-name="tipo">
+          <label><input type="radio" name="tipo" value="casa de show" checked><span>Casa de show</span></label>
+          <label><input type="radio" name="tipo" value="festival"><span>Festival</span></label>
+          <label><input type="radio" name="tipo" value="evento corporativo"><span>Corporativo</span></label>
+          <label><input type="radio" name="tipo" value="evento particular"><span>Particular</span></label>
+        </div>
+      </fieldset>
+      <div class="build__row">
+        <label class="field"><span>Cidade</span><input name="cidade" placeholder="São Paulo, SP" autocomplete="address-level2"></label>
+        <label class="field"><span>Data</span><input name="data" type="date"></label>
+      </div>
+      <label class="field"><span>Seu nome</span><input name="nome" placeholder="Como podemos te chamar?" autocomplete="name"></label>
+      <button class="btn btn--dark btn--wide" type="submit">Enviar pelo WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="ft" data-hd="dark">
+  <svg class="ft__sun"><use href="#sun"/></svg>
+  <p class="ft__name">Izzy Gordon</p>
+  <p class="ft__tag">SambaJazzSoul</p>
+  <nav class="ft__links">
+    <a href="https://www.instagram.com/izzygordon/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://open.spotify.com/artist/3qJZyw79SrwTj2VSCUmZtp" target="_blank" rel="noopener">Spotify</a>
+    <a href="https://www.deezer.com/artist/1039162" target="_blank" rel="noopener">Deezer</a>
+    <a href="https://www.youtube.com/channel/UCLC24W8w3oW--OG7gpx1RVA" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.facebook.com/izzy.gordonnew" target="_blank" rel="noopener">Facebook</a>
+  </nav>
+  <p class="ft__c">© 2026 Izzy Gordon</p>
+</footer>
+
+<!-- PLAYER -->
+<div class="player" id="player" hidden>
+  <canvas class="player__sun" id="sunCanvas" width="120" height="120" aria-hidden="true"></canvas>
+  <img class="player__cover" id="pCover" alt="">
+  <div class="player__info"><p class="player__t" id="pTitle"></p><p class="player__s" id="pSub"></p><span class="player__bar"><i id="pBar"></i></span></div>
+  <button class="player__btn" id="pToggle" aria-label="Pausar"><span class="ico"></span></button>
+  <button class="player__x" id="pClose" aria-label="Fechar player">×</button>
+</div>
+<audio id="audio" preload="none" crossorigin="anonymous"></audio>
+
+<script src="data.js?v=3"></script>
+<script src="main.js?v=3"></script>
+</body>
+</html>
