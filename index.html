@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=9">
+<link rel="stylesheet" href="styles.css?v=11">
 <script>try{if(!sessionStorage.getItem('izzyIntro')||/[?&]intro/.test(location.search))document.documentElement.classList.add('intro-on')}catch(e){}</script>
 </head>
 <body>
@@ -53,10 +53,10 @@
   <a class="hd__name" href="#inicio">Izzy Gordon</a>
   <nav class="hd__nav" id="nav">
     <a href="#raizes">Raízes</a>
-    <a href="#sementes">Sementes</a>
+    <a href="#samba">Samba</a>
+    <a href="#soul">Soul</a>
+    <a href="#jazz">Jazz</a>
     <a href="#rainhas">Rainhas</a>
-    <a href="#musica">Música</a>
-    <a href="#palco">Palco</a>
     <a href="#agenda">Agenda</a>
   </nav>
   <a class="hd__cta" href="#contato">Contratar show</a>
@@ -99,7 +99,7 @@
     <div class="hero__copy">
       <p class="hero__kicker">Cantora e compositora</p>
       <h1 class="hero__title"><span>Izzy</span> <span>Gordon</span></h1>
-      <p class="hero__words" aria-label="Samba, jazz e soul"><span>Samba</span><i></i><span>Jazz</span><i></i><span>Soul</span></p>
+      <p class="hero__words"><a href="#samba">Samba</a><i></i><a href="#jazz">Jazz</a><i></i><a href="#soul">Soul</a></p>
     </div>
 
     <div class="hero__after" id="heroAfter">
@@ -266,6 +266,37 @@
   <div class="seeds__border seeds__border--b" aria-hidden="true"></div>
 </section>
 
+<!-- MOMENTOS: abas Samba, Soul e Jazz -->
+<section class="moments" id="momentos" data-hd="dark" data-g="samba">
+  <span class="moments__anchor" id="samba"></span><span class="moments__anchor" id="soul"></span><span class="moments__anchor" id="jazz"></span>
+  <div class="moments__head">
+    <p class="eyebrow eyebrow--sun">Momentos</p>
+    <h2 class="h2 h2--cream">Izzy cantando</h2>
+    <div class="tabs" role="tablist" aria-label="Gêneros">
+      <button class="tab" role="tab" id="tab-samba" aria-controls="panel" data-g="samba" aria-selected="true">Samba</button>
+      <button class="tab" role="tab" id="tab-soul" aria-controls="panel" data-g="soul" aria-selected="false">Soul</button>
+      <button class="tab" role="tab" id="tab-jazz" aria-controls="panel" data-g="jazz" aria-selected="false">Jazz</button>
+    </div>
+  </div>
+  <div class="panel" id="panel" role="tabpanel" aria-labelledby="tab-samba">
+    <div class="panel__intro">
+      <p class="panel__big" id="gBig"></p>
+      <p class="panel__txt" id="gTxt"></p>
+    </div>
+    <div class="panel__main">
+      <div class="stagebox" id="stagebox"></div>
+      <div class="panel__side">
+        <p class="panel__k">Mais momentos</p>
+        <ul class="mlist" id="mList"></ul>
+      </div>
+    </div>
+    <div class="panel__songs">
+      <p class="panel__k">Ouça</p>
+      <div class="songs" id="gSongs"></div>
+    </div>
+  </div>
+</section>
+
 <!-- RAINHAS -->
 <section class="queens" id="rainhas" data-hd="dark">
   <div class="queens__in">
@@ -428,7 +459,7 @@
 </div>
 <audio id="audio" preload="none" crossorigin="anonymous"></audio>
 
-<script src="data.js?v=9"></script>
-<script src="main.js?v=9"></script>
+<script src="data.js?v=11"></script>
+<script src="main.js?v=11"></script>
 </body>
 </html>

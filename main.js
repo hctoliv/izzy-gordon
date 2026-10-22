@@ -131,6 +131,7 @@
   D.sementes.tracks.forEach((t, i) => byId[t.id] = { t: t.t, s: 'Sementes da Tamarineira', c: D.sementes.cover });
   D.singles.forEach(s => byId[s.id] = { t: s.t, s: s.f === 'single' ? 'Single · ' + s.y : s.f, c: s.c });
   D.albums.forEach(a => a.tracks.forEach(t => byId[t.id] = byId[t.id] || { t: t.t, s: a.t, c: a.c }));
+  Object.values(D.genres).forEach(g => g.songs.forEach(s => byId[s.id] = byId[s.id] || { t: s.t, s: s.s, c: s.c }));
 
   $('#tracks').innerHTML = D.sementes.tracks.map(t => `
     <li><button class="tr" data-id="${t.id}"><span class="tr__t">${t.t}</span><span class="tr__d">${fmt(t.d)}</span><span class="tr__p"></span><span class="tr__bar"></span></button></li>`).join('');
@@ -181,7 +182,7 @@
     if (cur === id) { audio.paused ? audio.play() : audio.pause(); return; }
     const t = byId[id]; if (!t) return;
     setupAudio(); if (actx && actx.state === 'suspended') actx.resume();
-    stopClip();
+    stopClip(); stopStage();
     cur = id; audio.src = `audio/${id}.mp3`; audio.play().catch(() => {});
     $('#pTitle').textContent = t.t; $('#pSub').textContent = t.s + ' · prévia';
     $('#pCover').src = t.c || D.sementes.cover;
@@ -235,6 +236,54 @@
     clip.classList.add('playing');
   });
   clipFull.addEventListener('ended', stopClip);
+
+  /* ---------- momentos: abas Samba, Soul e Jazz ---------- */
+  const mom = $('#momentos'), panel = $('#panel'), stagebox = $('#stagebox'), mList = $('#mList');
+  const esc = s => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  const thumb = m => m.yt ? `https://i.ytimg.com/vi/${m.yt}/maxresdefault.jpg` : m.poster;
+  let genre = null, stageItem = null;
+  function stage(m, go) {
+    stageItem = m;
+    $$('.mitem', mList).forEach(b => b.classList.toggle('on', go && b.dataset.i == genre.m.indexOf(m)));
+    if (go) {
+      audio.pause(); stopClip();
+      stagebox.innerHTML = m.yt
+        ? `<iframe src="https://www.youtube-nocookie.com/embed/${m.yt}?autoplay=1&rel=0&playsinline=1" title="${esc(m.t)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`
+        : `<img class="stagebox__bg" src="${m.poster}" alt=""><video src="${m.mp4}" poster="${m.poster}" controls autoplay playsinline></video>`;
+      return;
+    }
+    stagebox.innerHTML = `${m.yt ? '' : `<img class="stagebox__bg" src="${m.poster}" alt="">`}
+      <img class="stagebox__poster${m.yt ? '' : ' stagebox__poster--v'}" src="${thumb(m)}" alt="" loading="lazy">
+      <button class="stagebox__go" aria-label="Assistir ${esc(m.t)}"><span><b>${m.t}</b><small>${m.s}</small></span><span class="stagebox__play"></span></button>`;
+    $('.stagebox__go', stagebox).addEventListener('click', () => stage(m, true));
+  }
+  function stopStage() { if (stageItem && stagebox.querySelector('iframe,video')) stage(stageItem, false); }
+  function setGenre(g, push) {
+    if (!D.genres[g] || genre === D.genres[g]) return;
+    genre = D.genres[g];
+    mom.dataset.g = g;
+    $$('.tab', mom).forEach(b => b.setAttribute('aria-selected', b.dataset.g === g));
+    panel.setAttribute('aria-labelledby', 'tab-' + g);
+    $('#gBig').textContent = genre.big;
+    $('#gTxt').textContent = genre.txt;
+    mList.innerHTML = genre.m.map((m, i) => `<li><button class="mitem" data-i="${i}"><span class="mitem__th"><img src="${thumb(m)}" alt="" loading="lazy"></span><span><b>${m.t}</b><small>${m.s}</small></span></button></li>`).join('');
+    $('#gSongs').innerHTML = genre.songs.map(s => `<button class="song" data-id="${s.id}"><img src="${s.c}" alt="" loading="lazy"><span><b>${s.t}</b><small>${s.s}</small></span><span class="song__p"></span></button>`).join('');
+    stage(genre.m[0], false);
+    mark();
+    panel.classList.remove('swap'); void panel.offsetWidth; panel.classList.add('swap');
+    if (push) history.replaceState(null, '', '#' + g);
+  }
+  mList.addEventListener('click', e => { const b = e.target.closest('.mitem'); if (b) stage(genre.m[+b.dataset.i], true); });
+  $$('.tab', mom).forEach(b => b.addEventListener('click', () => setGenre(b.dataset.g, true)));
+  $('.tabs', mom).addEventListener('keydown', e => {
+    if (!/Arrow(Left|Right)/.test(e.key)) return;
+    const tabs = $$('.tab', mom), i = tabs.findIndex(b => b.getAttribute('aria-selected') === 'true');
+    const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+    n.focus(); n.click();
+  });
+  const fromHash = () => { const g = location.hash.slice(1); if (D.genres[g]) setGenre(g); };
+  setGenre('samba'); fromHash();
+  addEventListener('hashchange', fromHash);
 
   /* ---------- vídeos: carregam perto da tela, pausam fora ---------- */
   const vio = new IntersectionObserver(es => es.forEach(e => {
