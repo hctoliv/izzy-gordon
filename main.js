@@ -71,10 +71,13 @@
     const w = stick.clientWidth, h = stick.clientHeight, mob = w < 640;
     const cx = w / 2, cy = h * (mob ? .4 : .47);
     const r = mob ? Math.min(w * .36, h * .24) : Math.min(w * .3, h * .36);
-    const e = ease(clamp((p - .06) / .5));
+    // 1) o losango gira até virar um quadrado justo na foto; 2) a foto dá lugar ao vídeo; 3) só então a tela abre
+    const e1 = ease(clamp((p - .04) / .22)), e = ease(clamp((p - .34) / .24));
     const Dm = [[cx, cy - r], [cx + r, cy], [cx, cy + r], [cx - r, cy]];
+    const Sq = [[cx - r, cy - r], [cx + r, cy - r], [cx + r, cy + r], [cx - r, cy + r]];
     const F = [[0, 0], [w, 0], [w, h], [0, h]];
-    const P = Dm.map((d, i) => [d[0] + (F[i][0] - d[0]) * e, d[1] + (F[i][1] - d[1]) * e]);
+    const lerp = (A, B, k) => A.map((q, i) => [q[0] + (B[i][0] - q[0]) * k, q[1] + (B[i][1] - q[1]) * k]);
+    const P = lerp(lerp(Dm, Sq, e1), F, e);
     win.style.clipPath = `polygon(${P.map(q => q[0].toFixed(1) + 'px ' + q[1].toFixed(1) + 'px').join(',')})`;
     const mx = P.reduce((s, q) => s + q[0], 0) / 4, my = P.reduce((s, q) => s + q[1], 0) / 4;
     [10, 22, 34].forEach((off, k) => {
@@ -86,10 +89,10 @@
     });
     frame.style.opacity = 1 - clamp((e - .55) / .35);
     // o retrato fica do tamanho do losango (sem ampliar a foto) e cresce junto até ceder lugar ao tríptico
-    const box = r * 2 * (1 + e * .35);
+    const box = r * 2;
     Object.assign(imgA.style, { left: cx - box / 2 + 'px', top: cy - box / 2 + 'px', width: box + 'px', height: box + 'px' });
-    imgA.style.opacity = 1 - clamp((p - .32) / .1);
-    const tv = clamp((p - .3) / .1);
+    imgA.style.opacity = 1 - clamp((p - .27) / .08);
+    const tv = clamp((p - .26) / .08);
     tri.style.opacity = tv;
     if ((tv > 0) !== triOn) { triOn = tv > 0; triOn ? reelPlay() : triV.forEach(v => v.pause()); }
     win.style.setProperty('--shade', clamp((p - .45) / .15));
