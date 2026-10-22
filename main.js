@@ -52,7 +52,18 @@
   /* ---------- hero ---------- */
   const hero = $('.hero'), stick = $('.hero__stick'), win = $('#heroWin'), frame = $('#heroFrame');
   const fp = $$('polygon', frame), imgA = $('#heroA'), tri = $('#heroTri'), triV = $$('video', tri);
-  let triOn = false;
+  let triOn = false, reelI = 0;
+  // uma tela só: os vídeos ao vivo se revezam, um de cada vez
+  function reelPlay() {
+    triV.forEach((v, i) => v.classList.toggle('on', i === reelI));
+    const v = triV[reelI]; v.currentTime = 0; v.play().catch(() => {});
+  }
+  triV.forEach((v, i) => v.addEventListener('ended', () => {
+    if (!triOn || i !== reelI) return;
+    reelI = (reelI + 1) % triV.length;
+    triV[reelI].preload = 'auto';
+    reelPlay();
+  }));
   const giantL = $('.hero__giant--l'), giantR = $('.hero__giant--r');
   const copy = $('.hero__copy'), cta = $('.hero__cta'), after = $('#heroAfter'), suns = $('.hero__suns'), scrollCue = $('.hero__scroll');
 
@@ -80,8 +91,8 @@
     imgA.style.opacity = 1 - clamp((p - .32) / .1);
     const tv = clamp((p - .3) / .1);
     tri.style.opacity = tv;
-    if ((tv > 0) !== triOn) { triOn = tv > 0; triV.forEach(v => triOn ? v.play().catch(() => {}) : v.pause()); }
-    win.style.setProperty('--shade', clamp((p - .5) / .2));
+    if ((tv > 0) !== triOn) { triOn = tv > 0; triOn ? reelPlay() : triV.forEach(v => v.pause()); }
+    win.style.setProperty('--shade', clamp((p - .45) / .15));
     const fadeOut = 1 - clamp((p - .12) / .16);
     copy.style.opacity = cta.style.opacity = fadeOut;
     cta.style.pointerEvents = fadeOut < .2 ? 'none' : '';

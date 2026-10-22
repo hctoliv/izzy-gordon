@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=6">
+<link rel="stylesheet" href="styles.css?v=8">
 <script>try{if(!sessionStorage.getItem('izzyIntro')||/[?&]intro/.test(location.search))document.documentElement.classList.add('intro-on')}catch(e){}</script>
 </head>
 <body>
@@ -84,10 +84,11 @@
     <p class="hero__giant hero__giant--r" aria-hidden="true">Gordon</p>
 
     <div class="hero__win" id="heroWin">
-      <div class="hero__tri" id="heroTri">
-        <video src="video/festival-loop.mp4" poster="img/festival-loop.jpg" muted loop playsinline preload="metadata"></video>
-        <img src="img/palco-vermelho.jpg" alt="Izzy Gordon cantando de vestido vermelho no palco">
-        <video src="video/francisca-b.mp4" poster="img/francisca-b.jpg" muted loop playsinline preload="metadata"></video>
+      <div class="hero__tri" id="heroTri" aria-hidden="true">
+        <video class="on" src="video/festival-loop.mp4" poster="img/festival-loop.jpg" muted playsinline preload="metadata"></video>
+        <video src="video/francisca-a.mp4" poster="img/francisca-a.jpg" muted playsinline preload="none"></video>
+        <video src="video/francisca-c.mp4" poster="img/francisca-c.jpg" muted playsinline preload="none"></video>
+        <video src="video/francisca-b.mp4" poster="img/francisca-b.jpg" muted playsinline preload="none"></video>
       </div>
       <img class="hero__img hero__img--a" id="heroA" src="img/retrato-sofa.jpg" alt="Izzy Gordon em retrato preto e branco, olhando de lado">
     </div>
@@ -427,7 +428,7 @@
 </div>
 <audio id="audio" preload="none" crossorigin="anonymous"></audio>
 
-<script src="data.js?v=3"></script>
-<script src="main.js?v=3"></script>
+<script src="data.js?v=8"></script>
+<script src="main.js?v=8"></script>
 </body>
 </html>
